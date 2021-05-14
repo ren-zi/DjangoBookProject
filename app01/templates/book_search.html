@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+ {% block bar %}
+    <div class="col-md-9"style="justify-content: flex-end;">
+          <h1 class="page-header">搜索图书结果</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">图书列表<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-bady">
+                <div class="row" style="margin-bottom: 15px">
+                    <div class="col-md-4">
+                </div>
+
+            </div>
+      </div>
+    </div>
+ {% endblock %}
+
+{% block main %}
+<table border="1" class="table table-hover table-borderd">
+<thead>
+<tr>
+    <th>序号</th>
+    <th>书名</th>
+    <th>作者</th>
+    <th>出版社</th>
+    <th>出版时间</th>
+    <th>价格</th>
+    <th>评分</th>
+    <th>评论人数</th>
+    <th>操作</th>
+</tr>
+</thead>
+<tbody>
+{% for book_obj in book_obj_list %}
+    <tr>
+        <td>{{ book_obj.id }}</td>
+        <td>{{ book_obj.book_name}}</td>
+        <td>{{ book_obj.author}}</td>
+        <td>{{ book_obj.publisher}}</td>
+        <td>{{ book_obj.book_put_on}}</td>
+        <td>{{ book_obj.price}}</td>
+        <td>{{ book_obj.score}}</td>
+        <td>{{ book_obj.comment_num}}</td>
+        <td>
+            <a href="/app01/edit_book/?id={{ book_obj.id }}">修改</a>
+            <a href="/app01/delete_book/?id={{ book_obj.id }}">删除</a>
+        </td>
+    </tr>
+{% endfor %}
+
+
+</tbody>
+
+</table>
+    <div id="div1" class="fa fa-thumb-tack ">
+    <a href="#" class="pagebtn">上一页</a>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">7</a>
+    <a href="#">8</a>
+    <a href="#">9</a>
+    <a href="#">10</a>
+    <a href="#" class="pagebtn">下一页</a>
+    </div>
+
+{% endblock %}

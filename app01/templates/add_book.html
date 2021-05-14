@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+ {% block bar %}
+    <div class="col-md-9"style="justify-content: flex-end;">
+          <h1 class="page-header">图书管理页面</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">添加图书<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-bady">
+                                    <!-
+            </div>
+
+      </div>
+    </div>
+
+ {% endblock %}
+{% block main %}
+<form action="" , method="POST">
+    {% csrf_token %}
+    <p>
+        书名<input type="text", name="book_name">
+    </p>
+    <p>
+        作者<input type="text", name="author">
+    </p>
+    <p>
+        出版社<input type="text", name="publisher">
+    </p>
+    <p>
+        出版时间<input type="text", name="book_put_on">
+    </p>
+    <p>
+        出版价格<input type="text", name="price">
+    </p>
+    <p>
+        评分<input type="text", name="score">
+    </p>
+    <p>
+        评论人数<input type="text", name="comment_num">
+    </p>
+    <p>
+        <button type="submit" class="btn">提交</button>
+    </p>
+
+
+
+</form>
+
+
+{% endblock %}

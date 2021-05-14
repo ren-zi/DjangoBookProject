@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+ {% block bar %}
+    <div class="col-md-9"style="justify-content: flex-end;">
+          <h1 class="page-header">搜索出版社结果</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">出版社列表<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-bady">
+                <div class="row" style="margin-bottom: 15px">
+                    <div class="col-md-4">
+                </div>
+
+            </div>
+      </div>
+    </div>
+ {% endblock %}
+{% block main %}
+<table border="1" class="table table-hover table-borderd">
+<thead>
+<tr>
+    <th>序号</th>
+    <th>出版社名称</th>
+    <th>出版社地址</th>
+    <th>操作</th>
+
+
+</tr>
+</thead>
+<tbody>
+
+    <tr>
+        <td>{{ publisher_obj.id }}</td>
+        <td>{{ publisher_obj.name }}</td>
+        <td>{{ publisher_obj.address}}</td>
+        <td>
+            <a href="/app01/edit_publisher/?id={{ publisher_obj.id }}">修改</a>
+            <a href="/app01/delete_publisher/?id={{ publisher_obj.id }}">删除</a>
+        </td>
+    </tr>
+
+
+
+</tbody>
+
+</table>
+       <div id="div1" class="fa fa-thumb-tack ">
+    <a href="#" class="pagebtn">上一页</a>
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">7</a>
+    <a href="#">8</a>
+    <a href="#">9</a>
+    <a href="#">10</a>
+    <a href="#" class="pagebtn">下一页</a>
+    </div>
+
+{% endblock %}

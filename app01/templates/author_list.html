@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+ {% block bar %}
+    <div class="col-md-9"style="justify-content: flex-end;">
+          <h1 class="page-header">作者页面</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">作者列表<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-bady">
+
+                <div class="row" style="margin-bottom: 15px">
+                    <div class="col-md-4">
+
+                            <form action="" , method="POST">
+                                {% csrf_token %}
+                                <p>
+                                    作者姓名<input type="text" name="name" placeholder="Search for...">
+                                    <button type="submit" class="btn">搜索</button>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-2 pull-right">
+                        <a class="btn btn-success" href="/app01/add_author/">新增作者</a>
+                    </div>
+                </div>
+
+            </div>
+
+      </div>
+    </div>
+
+ {% endblock %}
+
+{% block main %}
+<table border="1" width="1120px" height="100px"  class=" pull-right">
+<thead>
+<tr>
+    <th>序号</th>
+    <th>作者姓名</th>
+    <th>作者地址</th>
+    <th>操作</th>
+
+
+</tr>
+</thead>
+<tbody>
+{% for author_obj in author_obj_list %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ author_obj.name }}</td>
+        <td>{{ author_obj.address}}</td>
+        <td>
+            <a href="/app01/edit_author/?id={{ author_obj.id }}">修改</a>
+            <a href="/app01/delete_author/?id={{ author_obj.id }}">删除</a>
+        </td>
+    </tr>
+{% endfor %}
+
+
+</tbody>
+
+</table>
+{% endblock %}

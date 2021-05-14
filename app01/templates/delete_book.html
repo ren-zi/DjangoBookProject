@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+ {% block bar %}
+    <div class="col-md-9"style="justify-content: flex-end;">
+          <h1 class="page-header">图书管理页面</h1>
+      <div class="panel panel-primary">
+        <div class="panel-heading">删除图书<i class="fa fa-thumb-tack pull-right"></i></div>
+            <div class="panel-bady">
+                                    <!-
+            </div>
+
+      </div>
+    </div>
+
+ {% endblock %}
+{% block main %}
+<form action="" , method="POST">
+    {% csrf_token %}
+    <p>
+        <input type="hidden", name="id" value="{{ book_obj.id }}">
+        图书名称:{{ book_obj.book_name }}
+    </p>
+    <p>
+        作者: {{ book_obj.author }}
+    </p>
+    <p>
+        出版社: {{book_obj.publisher}}
+    </p>
+        <p>
+        出版时间: {{book_obj.book_put_on}}
+    </p>
+        <p>
+        图书价格: {{book_obj.price}}
+    </p>
+        <p>
+        图书评分: {{book_obj.score}}
+    </p>
+        <p>
+        评论人数: {{book_obj.comment_num}}
+    </p>
+    <p>
+        <button type="submit" class="btn">删除</button>
+
+        <a href="/app01/book_list/">取消删除</a>
+    </p>
+
+
+</form>
+
+
+{% endblock %}
